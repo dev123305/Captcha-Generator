@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha Genrator</title>
+    <style>
+        body{
+            font-family: Impact;
+            text-align: center;
+            margin-top: 20px;
+                }
+        #captchaBox{
+            font-size: 24px;
+            letter-spacing: 5px;
+            background-color: #ca8e0d;
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        input{
+            padding: 8px;
+            margin-top: 10px;
+        }
+        button{
+            padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #result{
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+        let captcha ="";
+
+        function genrateCaptcha(){
+            const chars ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuwxyz0123456789";
+            captcha="";
+            for(let i=0; i<6; i++){
+                let randomIndex = Math.floor(Math.random() * chars.length);
+                captcha += chars[randomIndex];
+            }
+       
+             document.getElementById("captchaBox").innerText =captcha;
+        document.getElementById("result").innerText ="";
+        }
+
+
+        function verifyCaptcha(){
+            let userInput = document.getElementById("userInput").value;
+
+            if (userInput === captcha){
+                document.getElementById("result").innerHTML ="<span style='color:green';>Correct Captcha</span>";
+            }else{
+                document.getElementById("result").innerHTML ="<span style='color:red';>wrong Captcha</span>";
+            }
+        }
+
+       genrateCaptcha();
+       
+    </script>
+</head>
+<body>
+    <h2>Catcha Genrator</h2>
+    <div id="captchaBox"></div><br>
+
+    <button onclick="genrateCaptcha()" >GenrateCaptcha</button>
+    <input type="text" id="userInput" placeholder="Enter Captcha"><br>
+    <button onclick="verifyCaptcha()">Verify</button>
+
+    <div id="result"></div>
+</body>
+</html>
