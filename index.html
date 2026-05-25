@@ -32,7 +32,18 @@
             margin-top: 15px;
         }
     </style>
-    <script>
+   
+</head>
+<body>
+    <h2>Catcha Genrator</h2>
+    <div id="captchaBox"></div><br>
+
+    <button onclick="genrateCaptcha()" >GenrateCaptcha</button>
+    <input type="text" id="userInput" placeholder="Enter Captcha"><br>
+    <button onclick="verifyCaptcha()">Verify</button>
+
+    <div id="result"></div>
+     <script>
         let captcha ="";
 
         function genrateCaptcha(){
@@ -61,15 +72,5 @@
        genrateCaptcha();
        
     </script>
-</head>
-<body>
-    <h2>Catcha Genrator</h2>
-    <div id="captchaBox"></div><br>
-
-    <button onclick="genrateCaptcha()" >GenrateCaptcha</button>
-    <input type="text" id="userInput" placeholder="Enter Captcha"><br>
-    <button onclick="verifyCaptcha()">Verify</button>
-
-    <div id="result"></div>
 </body>
 </html>
